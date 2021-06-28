@@ -1,0 +1,4 @@
+{
+  "python.defaultInterpreterPath": "${workspaceFolder}/.direnv/python/bin/python",
+  "python.pythonPath": ".direnv/python-3.9.4/bin/python3.9"
+}
