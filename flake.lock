@@ -1,0 +1,61 @@
+{
+  "nodes": {
+    "flake-compat": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1606424373,
+        "narHash": "sha256-oq8d4//CJOrVj+EcOaSXvMebvuTkmBJuT5tzlfewUnQ=",
+        "owner": "edolstra",
+        "repo": "flake-compat",
+        "rev": "99f1c2157fba4bfe6211a321fd0ee43199025dbf",
+        "type": "github"
+      },
+      "original": {
+        "owner": "edolstra",
+        "repo": "flake-compat",
+        "type": "github"
+      }
+    },
+    "mach-nix": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1624409613,
+        "narHash": "sha256-XlNC1jIr5fyME6J04SORXLYZGfl/jtfheu1tTviVDa0=",
+        "owner": "DavHau",
+        "repo": "mach-nix",
+        "rev": "0171afc4924f3f3fe354cb718a3442c177838f05",
+        "type": "github"
+      },
+      "original": {
+        "owner": "DavHau",
+        "repo": "mach-nix",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1624862269,
+        "narHash": "sha256-JFcsh2+7QtfKdJFoPibLFPLgIW6Ycnv8Bts9a7RYme0=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "f77036342e2b690c61c97202bf48f2ce13acc022",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-21.05",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "flake-compat": "flake-compat",
+        "mach-nix": "mach-nix",
+        "nixpkgs": "nixpkgs"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}
