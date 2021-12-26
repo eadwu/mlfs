@@ -51,6 +51,16 @@ class KMeans():
         #   be used.
         df = pd.DataFrame(np.concatenate([y, self._x], axis=-1))
         centroids = df.groupby([0]).mean()
+
+        # A possible error here is due to outlier points based on the number
+        #   of centroids, in which case no points would be classified as
+        #   part of the cluster, so `centroids` would not of length `k`.
+        if len(centroids) < self._k:
+            # Fix by choosing random points to populate up to length `k`.
+            polyfill = self._x[np.random.choice(len(self._x),
+                                                self._k - len(centroids),
+                                                replace=False)]
+            centroids = centroids + polyfill
         self._centroids = np.asarray(centroids)
 
     def predict(self, x):
