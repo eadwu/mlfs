@@ -36,7 +36,12 @@
             rec {
               requirements = ''
                 numpy
+                pandas
+                protobuf
                 matplotlib
+                scikit-learn
+
+                seaborn
 
                 # PyTorch
                 torch

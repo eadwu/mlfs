@@ -1,0 +1,47 @@
+syntax = "proto3";
+
+package api;
+option go_package = "mlfs/api";
+
+// DatasetType represents the type of dataset being serialized.
+enum DatasetType {
+    // DOWNLOADED represents a dataset that has only been downloaded.
+    DOWNLOADED = 0;
+    // INLINE represents a dataset fully serialized through Protobuf.
+    INLINE = 1;
+}
+
+// Data Subset represents a subset of the dataset, proposed to be used for
+// the train, valid, and/or test splits.
+message DatasetSubset {
+    // X is the input data/features provided by the dataset.
+    repeated bytes x = 1;
+    // Y is the reference class and/or labels [if] provided by the dataset.
+    repeated bytes y = 2;
+}
+
+// DatasetPath represents the location of the dataset in the local filesystem,
+// with a SHA-512 hash recalculated at runtime, which may differ from the
+// original file hash.
+message DatasetPath {
+    // Location is the path in the local filesystem to the downloaded dataset.
+    string location = 1;
+    // Hash is the SHA-512 hash of the downloaded file.
+    bytes hash = 2;
+}
+
+// Dataset represents a dataset.
+message Dataset {
+    // Name is the name of the dataset.
+    string name = 1;
+    // Type represents the type of dataset being serialized.
+    DatasetType type = 2;
+    // Path represents the path attributes to the downloaded dataset.
+    DatasetPath path = 3;
+    // The train split of the dataset.
+    DatasetSubset train = 4;
+    // The valid split of the dataset.
+    DatasetSubset valid = 5;
+    // The test split of the dataset.
+    DatasetSubset test = 6;
+}
